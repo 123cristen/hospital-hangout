@@ -11,7 +11,7 @@
           <li class="<%= 'active' if current_page?(help_path) %>">
             <%= link_to "Help",   help_path %></li>
           <li class="pull-right"><%= link_to "Log in", '#' %></li>
-          <li class="pull-right"><%= link_to "Sign up", signup_path %></li>
+          <li class="<%= 'active' if current_page?(signup_path) %> pull-right"><%= link_to "Sign up", signup_path %></li>
       </ul>
     </nav>
 </header>
