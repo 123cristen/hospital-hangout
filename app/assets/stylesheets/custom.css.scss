@@ -1,2 +1,56 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*********************************************************
+GENERAL
+*********************************************************/
+
+.jumbotron {
+	background-color: #FFB94E;
+}
+
+body {
+	background-color: #22A7F0;
+}
+
+/*********************************************************
+HEADER
+*********************************************************/
+
+header {
+	background-color: #87D37C;
+	border-radius: 10px;
+	padding: 20px
+}
+
+#logo {
+	font-size: 4em;
+	color: #fff;
+}
+
+/*********************************************************
+FOOTER
+*********************************************************/
+
+footer {
+	color: #fff;
+	margin: 5px;
+}
+
+footer a {
+	color: #000;
+}
+
+footer small {
+	float: left;
+}
+
+footer ul {
+	float: right;
+	list-style: none;
+}
+
+footer ul li {
+	float: left;
+	margin-left: 15px;
+}

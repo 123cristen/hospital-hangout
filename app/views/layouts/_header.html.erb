@@ -1,19 +1,14 @@
-<header>
-  <div>
-    <%= link_to "hospital hangout", '#'%>
+<header class="page-header">
+    <%= link_to "Hospital Hangout", '#', id: "logo" %>
     <nav>
-      <ul>
-        <li><%= link_to "Sign up", '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+      <ul class="nav nav-pills">
+          <li class="<%= 'active' if current_page?(root_path) %>">
+            <%= link_to "Home",   '#' %></li>
+          <li><%= link_to "About",   '#' %></li>
+          <li><%= link_to "Contact", '#' %></li>
+          <li><%= link_to "Help",   '#' %></li>
+          <li class="pull-right"><%= link_to "Log in", '#' %></li>
+          <li class="pull-right"><%= link_to "Sign up", '#' %></li>
       </ul>
     </nav>
-    <nav>
-      <ul>
-        <li><%= link_to "Home",   '#' %></li>
-        <li><%= link_to "About",   '#' %></li>
-        <li><%= link_to "Contact", '#' %></li>
-        <li><%= link_to "Help",   '#' %></li>
-      </ul>
-    </nav>
-  </div>
 </header>

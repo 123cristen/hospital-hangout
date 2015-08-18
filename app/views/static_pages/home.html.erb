@@ -1,11 +1,11 @@
-<div>
-	<h1>Hospital Hangout</h1>
-	<h2>
-		Hospital Hangout is a social network for young hospital patients. It enables patients to connect with others like them through chatting, video chatting, and multiplayer games. For more information, check out our <%= link_to "About", '#' %> section. 
+<div class="jumbotron">
+	<h1>Welcome!</h1>
+	<h2 class="lead">
+		Hospital Hangout is a social network for young hospital patients. It enables patients to connect with others like them through chatting, video chatting, and multiplayer games. For more information, check out our <%= link_to "about", '#' %> section. 
 	</h2>
-	<ul>
-		<li><%= link_to "Sign up now!", '#'%></li>
-		<li><%= link_to "I have an account, log in!", '#'%></li>
-	</ul>
+	<p>
+		<%= link_to "Sign up now!", '#', class: "btn btn-lg btn-success" %>
+		<%= link_to "I have an account, log in!", '#', class: "btn btn-lg btn-link" %>
+	</p>
 </div>
 
