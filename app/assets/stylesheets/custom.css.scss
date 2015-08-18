@@ -35,22 +35,18 @@ FOOTER
 footer {
 	color: #fff;
 	margin: 5px;
-}
-
-footer a {
-	color: #000;
-}
-
-footer small {
-	float: left;
-}
-
-footer ul {
-	float: right;
-	list-style: none;
-}
-
-footer ul li {
-	float: left;
-	margin-left: 15px;
+	a {
+		color: #000;
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+				float: left;
+				margin-left: 15px;
+		}
+	}
 }
