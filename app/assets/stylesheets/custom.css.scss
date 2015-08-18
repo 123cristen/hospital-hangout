@@ -26,6 +26,9 @@ header {
 #logo {
 	font-size: 4em;
 	color: #fff;
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 /*********************************************************

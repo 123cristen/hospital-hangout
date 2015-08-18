@@ -1,12 +1,15 @@
 <header class="page-header">
-    <%= link_to "Hospital Hangout", '#', id: "logo" %>
+    <%= link_to "Hospital Hangout", root_path, id: "logo" %>
     <nav>
       <ul class="nav nav-pills">
           <li class="<%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Home",   '#' %></li>
-          <li><%= link_to "About",   '#' %></li>
-          <li><%= link_to "Contact", '#' %></li>
-          <li><%= link_to "Help",   '#' %></li>
+            <%= link_to "Home",   root_path %></li>
+          <li class="<%= 'active' if current_page?(about_path) %>">
+            <%= link_to "About",   about_path %></li>
+          <li class="<%= 'active' if current_page?(hospitals_path) %>">
+            <%= link_to "Hospitals",   hospitals_path %></li>
+          <li class="<%= 'active' if current_page?(help_path) %>">
+            <%= link_to "Help",   help_path %></li>
           <li class="pull-right"><%= link_to "Log in", '#' %></li>
           <li class="pull-right"><%= link_to "Sign up", '#' %></li>
       </ul>
