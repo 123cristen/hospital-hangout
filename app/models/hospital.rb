@@ -13,4 +13,12 @@ class Hospital < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
+	VALID_PASSWORD_REGEX = /(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*/
+  validate :password_complexity
+
+  def password_complexity
+    if !password.match(VALID_PASSWORD_REGEX)
+      errors.add :password, "must include at least one lowercase letter, one uppercase letter, and one digit"
+    end
+  end
 end

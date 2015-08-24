@@ -3,8 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(name: "Example User", email: "user@example.com",
-    								password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: "Example User", email: "user23@example.com",
+    								password: "Foobar1", password_confirmation: "Foobar1", hospital_id: 1)
   end
 
   test "should be valid" do
@@ -70,6 +70,31 @@ class UserTest < ActiveSupport::TestCase
 
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
+  test "password validation should accept valid passwords" do
+    valid_passwords = %w[Password1 NEWPaSSWORD345 2IsGood 
+                           123456Hi eTC34578]
+    valid_passwords.each do |valid_password|
+      @user.password = valid_password
+      @user.password_confirmation = valid_password
+      assert @user.valid?, "#{valid_password.inspect} should be valid"
+    end
+  end
+
+  test "password validation should reject invalid passwords" do
+    invalid_passwords = %w[password 1234567 THISISGOOD foo+foo 
+                           Password password1 ANOTHER1]
+    invalid_passwords.each do |invalid_password|
+      @user.password = invalid_password
+      @user.password_confirmation = invalid_password
+      assert_not @user.valid?, "#{invalid_password.inspect} should be invalid"
+    end
+  end
+
+  test "hospital field should not be empty" do
+    @user.update_attribute(:hospital_id, nil)
     assert_not @user.valid?
   end
 end

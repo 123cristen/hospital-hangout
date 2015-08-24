@@ -5,8 +5,8 @@ class HospitalTest < ActiveSupport::TestCase
 	def setup
 		@hospital = Hospital.new(name: "Example Children's Hospital",
 															email: "hospital@example.com",
-															password: "password",
-															password_confirmation: "password",
+															password: "Password1",
+															password_confirmation: "Password1",
 															address_line_1: "5 Main Street",
 															address_line_2: "",
 															city: "Los Angeles",
@@ -78,5 +78,25 @@ class HospitalTest < ActiveSupport::TestCase
   test "password should have a minimum length" do
     @hospital.password = @hospital.password_confirmation = "a" * 5
     assert_not @hospital.valid?
+  end
+
+  test "password validation should accept valid passwords" do
+    valid_passwords = %w[Password1 NEWPaSSWORD345 2IsGood 
+                           123456Hi eTC34578]
+    valid_passwords.each do |valid_password|
+      @hospital.password = valid_password
+      @hospital.password_confirmation = valid_password
+      assert @hospital.valid?, "#{valid_password.inspect} should be valid"
+    end
+  end
+
+  test "password validation should reject invalid passwords" do
+    invalid_passwords = %w[password 1234567 THISISGOOD foo+foo 
+                           Password password1 ANOTHER1]
+    invalid_passwords.each do |invalid_password|
+      @hospital.password = invalid_password
+      @hospital.password_confirmation = invalid_password
+      assert_not @hospital.valid?, "#{invalid_password.inspect} should be invalid"
+    end
   end
 end
