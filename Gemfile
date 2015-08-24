@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # bcrypt encrypts passwords using a state of the art hash function
 gem 'bcrypt',               '3.1.7'
+# Use faker to generate users with semi-realisitic names/emails
+gem 'faker',    '1.4.2'
 # Use Bootstrap for more stylesheets
 gem 'bootstrap-sass', '3.2.0.0'
 # Use SCSS for stylesheets
