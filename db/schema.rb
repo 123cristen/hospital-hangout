@@ -11,24 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819103410) do
+ActiveRecord::Schema.define(version: 20150824135948) do
 
-  create_table "hospitals", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "hospitals", ["name"], name: "index_hospitals_on_name", unique: true
-
-  create_table "users", force: :cascade do |t|
+  create_table "accounts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "password_digest"
+    t.string   "type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "password_digest"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
