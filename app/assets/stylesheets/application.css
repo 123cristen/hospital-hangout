@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require_font-awesome
  *= require_self
  */

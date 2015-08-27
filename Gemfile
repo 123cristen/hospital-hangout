@@ -9,6 +9,8 @@ gem 'bcrypt',               '3.1.7'
 gem 'faker',    '1.4.2'
 # Use Bootstrap for more stylesheets
 gem 'bootstrap-sass', '3.2.0.0'
+# Use font-awesome for symbols in a font
+gem 'font-awesome-rails', '4.4.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
