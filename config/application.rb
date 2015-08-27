@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module HospitalHangouts
   class Application < Rails::Application
+    # Add to the default autoloads that will happen when files are edited
+    config.autoload_paths += %W( #{config.root}/lib )
+
+    # Change default error field html
+    # config.action_view.field_error_proc Proc.new {|html, instance| html}
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
