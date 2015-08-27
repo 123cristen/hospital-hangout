@@ -20,6 +20,16 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 
 	ERROR_CLASS = "error"
 
+	# Metaprogramming
+	# Implements formatting for each of these fields instead of copy/pasting for each
+	%w(email_field text_field password_field).each do |form_method|
+		define_method(form_method) do |*args|
+			attribute = args[0]
+			options = args[1] || {}
+			text_field(attribute, options)
+		end
+	end
+
 	# Include this to generate all html associated with a text field
 	def text_field(attribute, options={})
 		options[:label] ||= attribute # default text field label
