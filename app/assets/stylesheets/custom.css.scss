@@ -1,23 +1,23 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*@import "bootstrap-sprockets";
+@import "bootstrap"; */
 
 /*********************************************************
 GENERAL
 *********************************************************/
 
-.jumbotron {
+/*.jumbotron {
 	background-color: #FFB94E;
 }
 
 body {
 	background-color: #22A7F0;
-}
+}*/
 
 /*********************************************************
 HEADER
 *********************************************************/
 
-header {
+/*header {
 	background-color: #87D37C;
 	border-radius: 10px;
 	padding: 20px
@@ -29,13 +29,13 @@ header {
 	&:hover {
 		text-decoration: none;
 	}
-}
+}*/
 
 /*********************************************************
 FOOTER
 *********************************************************/
 
-footer {
+/*footer {
 	color: #fff;
 	margin: 5px;
 	a {
@@ -52,13 +52,13 @@ footer {
 				margin-left: 15px;
 		}
 	}
-}
+}*/
 
 /*********************************************************
 User Profile Sidebar
 *********************************************************/
 
-aside {
+/*aside {
   section.user_info {
     margin-top: 20px;
   }
@@ -91,13 +91,13 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
-}
+}*/
 
 /*********************************************************
 FORMS
 *********************************************************/
 
-input, textarea, select, .uneditable-input {
+/*input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -123,14 +123,14 @@ input {
   .form-control {
     color: $state-danger-text;
   }
-}
+}*/
 
 
 /*********************************************************
 DEBUG CONSOLE IN DEV ENV
 *********************************************************/
 
-.debug_dump {
+/*.debug_dump {
   clear: both;
   float: left;
   width: 100%;
@@ -138,12 +138,12 @@ DEBUG CONSOLE IN DEV ENV
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
-}
+}*/
 
 
 /*********************************************************
 BREAKPOINT FOR TABLET
 *********************************************************/
 
-@media only screen and (min-width: 768px)
+/*@media only screen and (min-width: 768px)*/
 
