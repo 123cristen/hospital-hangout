@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href='https://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
 	  <title><%= full_title(yield(:title)) %></title>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -9,7 +10,7 @@
 		<%= render 'layouts/shim' %>
 	</head>
 	<body>
-		<div class="container">
+		<div class="wrapper">
 			<%= render 'layouts/header' %>
 			<div>
 				<% flash.each do |message_type, message| %>

@@ -1,38 +1,216 @@
-$light-green: #87D37C;
-$dark-orange: #F9690E;
 
 /*****************************************
-Body
+VARIABLES AND MIXINS
+*****************************************/
+$orange: #FFB94E;
+$blue: #4B77BE;
+$green: #87D37C;
+$background: #22A7F0;
+
+@mixin block-center {
+	display: block;
+	text-align: center;
+}
+
+@mixin button($background-color, $text-color, $border-color,
+							$hover-color) {
+	display: block;
+	text-align: center;
+	border: 1px solid $border-color;
+	border-radius: 5px;
+	background-color: $background-color;
+	a { 
+		color: $text-color; 
+		display: block;
+		text-align: center;
+		padding: 10px 15px;
+	}
+	&:hover { border-color: $hover-color; }
+}
+
+/*****************************************
+Page styles
 *****************************************/
 
 body {
-	font: normal 1.1em/1.5 sans-serif;
-	color: $dark-orange;
-	background-color: $light-green;
+	font-family: 'Arimo', sans-serif;
+	font-weight: normal;
+	background-color: $background;
+	font-size: 0.8em;
+}
+
+.wrapper {
+	width: 100%;
+	margin: auto;
+}
+
+a {
+	text-decoration: none;
+	color: $blue;
 }
 
 /*****************************************
-Layout element colors
+HEADER & NAVIGATION
 *****************************************/
 header {
-	
+	padding: 20px;
+	background-color: $green;
+	nav {
+		@include block-center;
+		width: 100%;
+	}
 }
 
-div.content {
-	
+.nav-item {
+	@include block-center;
+	@include button(clear, $blue, $blue, white);
+	&.active {
+		background-color: $blue;
+		a {
+			color: white;
+		}
+	}
 }
 
+/*****************************************
+LOGO
+*****************************************/
+#logo {
+	@include block-center;
+	width: 100%;
+	margin: 0 0 20px 0;
+	a {
+		@include block-center;
+		padding: 10px 15px;
+	}
+	color: white;
+}
+
+/*****************************************
+CONTENT
+*****************************************/
+
+.content {
+	background-color: $orange;
+	padding: 20px 40px;
+	margin: 0;
+	text-align: center;
+	#signup {
+		@include button($green, white, $green, white);
+		margin: 20px 5px;
+		display: inline-block;
+	}
+	#login {
+		@include button($blue, white, $blue, white);
+		margin: 20px 5px;
+		display: inline-block;
+	}
+}
+
+
+/*****************************************
+FOOTER
+*****************************************/
 footer {
-	
+	padding: 5px;
+	.copyright, nav, nav ul li {
+		display: inline-block;
+	}
+	.copyright {
+		margin-right: 20px;
+	}
+	& nav ul li {
+		margin-right: 10px;
+	}
+	color: white;
+	& a {
+		text-decoration: none;
+		color: black;
+	}
 }
+
 
 /*****************************************
 Tablet styling
 *****************************************/
-@media only screen and (min-width: 768px)
+@media only screen and (min-width: 652px) {
+
+	.wrapper {
+		width: 90%;
+	}
+
+	header {
+		margin-top: 20px;
+		border-radius: 10px;
+	}
+
+	#logo, header nav, header nav ul li {
+		display: inline-block;
+	}
+
+	#logo, header nav {
+		width: 100%;
+		text-align: left;
+	}
+
+	div.content {
+		border-radius: 10px;
+		& h1, h2, h3 {
+			padding-top: 40px;
+			padding-left: 40px;
+			margin: 0;
+		}
+		& p {
+			padding: 0;
+			padding: 0 0 40px 0;
+			margin: 0;
+		}
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	header nav ul li {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		border-bottom: 0;
+	}
+
+	header nav {
+		border-bottom: 5px solid $blue;
+	}
+
+	#logo {
+		font-size: 4em;
+		text-align: left;
+		display: block;
+		width: default;
+	}
+}
 
 
-.debug_dump {
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 0.9em;
+	}
+	#logo, nav, nav ul li {
+		display: inline-block;
+	}
+
+	#logo {
+		font-size: 4em;
+		text-align: left;
+		display: block;
+		width: default;
+	}
+}
+
+@media only screen and (min-width: 1068px) {
+	body {
+		font-size: 1em;
+	}
+}
+
+/*.debug_dump {
   clear: both;
   float: left;
   width: 100%;
@@ -40,4 +218,6 @@ Tablet styling
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
-}
+}*/
+
+

@@ -1,17 +1,19 @@
 <header class="page-header">
-    <%= link_to "Hospital Hangout", root_path, id: "logo" %>
+    <%= link_to(root_path) do %>
+      <h1 id="logo">Hospital Hangout</h1>
+    <% end %>
     <nav>
-      <ul class="nav nav-pills">
-          <li class="<%= 'active' if current_page?(root_path) %>">
+      <ul class="nav">
+          <li class="<%= 'active' if current_page?(root_path) %> nav-item">
             <%= link_to "Home",   root_path %></li>
-          <li class="<%= 'active' if current_page?(about_path) %>">
+          <li class="<%= 'active' if current_page?(about_path) %> nav-item">
             <%= link_to "About",   about_path %></li>
-          <li class="<%= 'active' if current_page?(hospitals_path) %>">
+          <li class="<%= 'active' if current_page?(hospitals_path) %> nav-item">
             <%= link_to "Hospitals",   hospitals_path %></li>
-          <li class="<%= 'active' if current_page?(help_path) %>">
+          <li class="<%= 'active' if current_page?(help_path) %> nav-item">
             <%= link_to "Help",   help_path %></li>
-          <li class="pull-right"><%= link_to "Log in", '#' %></li>
-          <li class="<%= 'active' if current_page?(signup_path) %> pull-right"><%= link_to "Sign up", signup_path %></li>
+          <li class="nav-item pull-right"><%= link_to "Log in", '#' %></li>
+          <li class="<%= 'active' if current_page?(signup_path) %> nav-item pull-right"><%= link_to "Sign up", signup_path %></li>
       </ul>
     </nav>
 </header>
