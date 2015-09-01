@@ -9,7 +9,7 @@
 # User to login as:
 User.create!(name: "Example User",
 							email: "user@example.com",
-							hospital_id: 1;
+							hospital_id: 1,
 							password: "Password1",
 							password_confirmation: "Password1")
 
@@ -28,7 +28,7 @@ Hospital.create!(name: "Example Children's Hospital",
 100.times do
 	User.create!(name: Faker::Name.name,
 									email: Faker::Internet.email,
-									hospital_id: 1;
+									hospital_id: 1,
 									password: "Password1",
 									password_confirmation: "Password1")
 end
