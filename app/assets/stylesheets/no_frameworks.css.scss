@@ -135,16 +135,21 @@ CONTENT
  	margin-left: auto;
  	margin-right: auto;
  	border-spacing: 10px;
+	.cell {
+		display: table-cell;
+		text-align: left;
+		label {
+			white-space: nowrap;
+		}
+	}
 	label {
 		margin: 0 10px 0 0;
-		display: table-cell;
 		vertical-align: middle;
 		text-align: right;
 		font-size: 1.3em;
 	}
 	input {
 		@include input-button($blue, white, $blue, white);
-		display: table-cell;
 		vertical-align: middle;
 	}
 	.button {
@@ -183,7 +188,7 @@ footer {
 }
 
 /*****************************************
-Tablet styling
+MEDIA QUERIES
 *****************************************/
 @media only screen and (min-width: 540px) {
 
@@ -208,6 +213,13 @@ Tablet styling
 	.nav-item {
 		display: inline-block;
 		border: none;
+	}
+
+	.form {
+		.cell {
+/*			text-align: left;
+			width: initial;*/
+		}
 	}
 
 	#logo {
@@ -243,6 +255,20 @@ Tablet styling
 	body {
 		font-size: 1em;
 	}
+}
+
+/*****************************************
+ERRORS AND DEBUG
+*****************************************/
+
+.field_with_errors {
+	input {
+		background-color: red;
+	}
+}
+
+small.error {
+	color: red;
 }
 
 /*.debug_dump {
