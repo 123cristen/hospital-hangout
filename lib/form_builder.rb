@@ -36,19 +36,22 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 		label_text ||= options.delete(:label).to_s.titleize
 		label_options ||= {}
 		if errors_on?(attribute)
-			label_options[:class] = ERROR_CLASS
-			options[:class] = ERROR_CLASS
+			label_options[:class] += ERROR_CLASS
+			options[:class] += ERROR_CLASS
 		end
-		content_tag(:div, class: "") do # creates html tags and classes for block
-			label(attribute, label_text, label_options) + 
-			super(attribute, options) + errors_for_field(attribute)
+		content_tag(:span, class: "row") do # creates html tags and classes for block
+			# options[:class] ||= ""
+			# wrapper do
+				label(attribute, label_text, label_options) + 
+				super(attribute, options) + errors_for_field(attribute)
+			# end
 		end
 	end
 
 	# Include this to generate all html associated with a submit button
 	def submit(text, options={})
 		options[:class] ||= ""	# default classes
-		content_tag(:div, class: "") do # creates html tags and classes for block
+		content_tag(:div, class: "button submit") do # creates html tags and classes for block
 			super(text, options)
 		end
 	end
@@ -62,12 +65,13 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 	# end
 
 	def wrapper(options={}, &block) # Define this method for tags that will be included for all methods above
-		content_tag(:div, capture(&block), class: "") 
+		options[:class] ||= ""
+		content_tag(:div, capture(&block), class: options[:class]) 
 		# capture encloses the block inside the div, see implementation above
 	end
 
 	def errors_on?(attribute)
-		objecterrors[:attribute].size > 0
+		object.errors[:attribute].size > 0
 	end
 
 	def errors_for_field(attribute, options={})

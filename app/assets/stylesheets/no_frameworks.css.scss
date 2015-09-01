@@ -5,7 +5,7 @@ VARIABLES AND MIXINS
 $orange: #FFB94E;
 $blue: #4B77BE;
 $green: #87D37C;
-$background: #22A7F0;
+$background: #4B77BE; /*#22A7F0;*/
 
 @mixin block-center {
 	display: block;
@@ -25,6 +25,17 @@ $background: #22A7F0;
 		text-align: center;
 		padding: 10px 15px;
 	}
+	&:hover { background-color: $hover-color; }
+}
+
+@mixin input-button($background-color, $text-color, 
+										$border-color, $hover-color) {
+	text-align: center;
+	border: 1px solid $border-color;
+	border-radius: 5px;
+	background-color: $background-color;
+	padding: 10px 15px;
+	color: $text-color; 
 	&:hover { border-color: $hover-color; }
 }
 
@@ -77,6 +88,7 @@ LOGO
 *****************************************/
 #logo {
 	@include block-center;
+	font-weight: normal;
 	width: 100%;
 	margin: 0 0 20px 0;
 	a {
@@ -92,21 +104,59 @@ CONTENT
 
 .content {
 	background-color: $orange;
-	padding: 20px 40px;
+	padding: 40px;
 	margin: 0;
 	text-align: center;
 	#signup {
 		@include button($green, white, $green, white);
-		margin: 20px 5px;
+		margin: 20px 5px 0;
 		display: inline-block;
 	}
 	#login {
 		@include button($blue, white, $blue, white);
-		margin: 20px 5px;
+		margin: 20px 5px 0;
 		display: inline-block;
+	}
+	h1 {
+		font-size: 5em;
+		font-weight: normal;
+		margin: 0;
+	}
+	h2 {
+		margin: 0;
+	}
+	p {
+		font-size: 1.2em;
 	}
 }
 
+.form {
+ 	display: table;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	border-spacing: 10px;
+	label {
+		margin: 0 10px 0 0;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		font-size: 1.3em;
+	}
+	input {
+		@include input-button($blue, white, $blue, white);
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.button {
+		input {
+			@include input-button($green, $blue, $green, white);
+			width: 100%;
+		}
+	}
+	.row {
+		display: table-row;
+	}
+}
 
 /*****************************************
 FOOTER
@@ -119,6 +169,9 @@ footer {
 	.copyright {
 		margin-right: 20px;
 	}
+	nav {
+		float: right;
+	}
 	& nav ul li {
 		margin-right: 10px;
 	}
@@ -129,11 +182,10 @@ footer {
 	}
 }
 
-
 /*****************************************
 Tablet styling
 *****************************************/
-@media only screen and (min-width: 652px) {
+@media only screen and (min-width: 540px) {
 
 	.wrapper {
 		width: 90%;
@@ -141,49 +193,31 @@ Tablet styling
 
 	header {
 		margin-top: 20px;
+		padding-bottom: 5px;
 		border-radius: 10px;
+		nav {
+			display: inline-block;
+			text-align: left;
+		}
+		.float-right {
+			float: right;
+			margin-right: 4px;
+		}
 	}
 
-	#logo, header nav, header nav ul li {
+	.nav-item {
 		display: inline-block;
+		border: none;
 	}
 
-	#logo, header nav {
-		width: 100%;
+	#logo {
 		text-align: left;
+		font-size: 4em;
 	}
 
 	div.content {
 		border-radius: 10px;
-		& h1, h2, h3 {
-			padding-top: 40px;
-			padding-left: 40px;
-			margin: 0;
-		}
-		& p {
-			padding: 0;
-			padding: 0 0 40px 0;
-			margin: 0;
-		}
 		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-
-	header nav ul li {
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-		border-bottom: 0;
-	}
-
-	header nav {
-		border-bottom: 5px solid $blue;
-	}
-
-	#logo {
-		font-size: 4em;
-		text-align: left;
-		display: block;
-		width: default;
 	}
 }
 
@@ -192,15 +226,16 @@ Tablet styling
 	body {
 		font-size: 0.9em;
 	}
-	#logo, nav, nav ul li {
-		display: inline-block;
+	div.content {
+		text-align: left;
+		padding: 60px;
 	}
 
-	#logo {
-		font-size: 4em;
-		text-align: left;
-		display: block;
-		width: default;
+	.form {
+		margin: 0;
+		label {
+			text-align: left;
+		}
 	}
 }
 
