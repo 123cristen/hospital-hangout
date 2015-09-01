@@ -9,14 +9,15 @@
 # User to login as:
 User.create!(name: "Example User",
 							email: "user@example.com",
-							password: "password",
-							password_confirmation: "password")
+							hospital_id: 1;
+							password: "Password1",
+							password_confirmation: "Password1")
 
 # Hospital to login as:
 Hospital.create!(name: "Example Children's Hospital",
 									email: "hospital@example.com",
-									password: "password",
-									password_confirmation: "password",
+									password: "Password1",
+									password_confirmation: "Password1",
 									address_line_1: "5 Main Street",
 									address_line_2: "",
 									city: "Los Angeles",
@@ -27,16 +28,17 @@ Hospital.create!(name: "Example Children's Hospital",
 100.times do
 	User.create!(name: Faker::Name.name,
 									email: Faker::Internet.email,
-									password: "password",
-									password_confirmation: "password")
+									hospital_id: 1;
+									password: "Password1",
+									password_confirmation: "Password1")
 end
 
 # Create lots of hospitals
 20.times do
 	Hospital.create!(name: Faker::Address.city + " Children's Hospital",
 									email: Faker::Internet.email,
-									password: "password",
-									password_confirmation: "password",
+									password: "Password1",
+									password_confirmation: "Password1",
 									address_line_1: Faker::Address.street_address,
 									address_line_2: Faker::Address.secondary_address,
 									city: Faker::Address.city,
