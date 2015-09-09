@@ -109,11 +109,17 @@ CONTENT
 	text-align: center;
 	#signup {
 		@include button($green, white, $green, white);
+		a:hover {
+			color: $green;
+		}
 		margin: 20px 5px 0;
 		display: inline-block;
 	}
 	#login {
 		@include button($blue, white, $blue, white);
+		a:hover {
+			color: $blue;
+		}
 		margin: 20px 5px 0;
 		display: inline-block;
 	}
@@ -130,20 +136,26 @@ CONTENT
 	}
 }
 
+/*****************************************
+FORMS
+*****************************************/
+
 .form {
  	display: table;
+ 	width: 30%;
  	margin-left: auto;
  	margin-right: auto;
  	border-spacing: 10px;
-	.cell {
-		display: table-cell;
+	.row {
+		display: table-row;
 		text-align: left;
+		margin-bottom: 10px;
 		label {
 			white-space: nowrap;
 		}
 	}
 	label {
-		margin: 0 10px 0 0;
+		margin: 0 15px 0 0;
 		vertical-align: middle;
 		text-align: right;
 		font-size: 1.3em;
@@ -157,9 +169,6 @@ CONTENT
 			@include input-button($green, $blue, $green, white);
 			width: 100%;
 		}
-	}
-	.row {
-		display: table-row;
 	}
 }
 
@@ -261,10 +270,8 @@ MEDIA QUERIES
 ERRORS AND DEBUG
 *****************************************/
 
-.field_with_errors {
-	input {
+input.error {
 		background-color: red;
-	}
 }
 
 small.error {

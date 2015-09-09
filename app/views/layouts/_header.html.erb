@@ -13,7 +13,8 @@
           <li class="<%= 'active' if current_page?(help_path) %> nav-item">
             <%= link_to "Help",   help_path %></li>
           <li class="nav-item float-right"><%= link_to "Log in", '#' %></li>
-          <li class="<%= 'active' if current_page?(signup_path) %> nav-item float-right"><%= link_to "Sign up", signup_path %></li>
+          <% layout = "#{controller.controller_name}/#{controller.action_name}" %>
+          <li class="<%= 'active' if layout == "users/new" || layout == "users/create"  %> nav-item float-right"><%= link_to "Sign up", signup_path %></li>
       </ul>
     </nav>
 </header>
