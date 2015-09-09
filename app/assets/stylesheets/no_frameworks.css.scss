@@ -154,7 +154,7 @@ FORMS
  	width: 30%;
  	margin-left: auto;
  	margin-right: auto;
- 	border-spacing: 10px;
+ 	border-spacing: 0 10px;
 	.row {
 		display: table-row;
 		text-align: left;
@@ -178,6 +178,14 @@ FORMS
 			@include input-button($green, $blue, $green, white);
 			width: 100%;
 		}
+	}
+	.checkbox {
+		margin: 20px 0;
+	  span {
+	    margin-left: 5px;
+	    font-weight: normal;
+	    font-size: .7em;
+  	}
 	}
 }
 

@@ -8,6 +8,11 @@
 
       <%= f.password_field :password %>
 
+      <%= f.label :remember_me, class: "checkbox row" do %>
+			  <%= f.check_box :remember_me %>
+			  <span>Remember me</span>
+			<% end %>
+
       <%= f.submit "Log in", class: "button submit" %>
     <% end %>
 

@@ -97,4 +97,8 @@ class UserTest < ActiveSupport::TestCase
     @user.update_attribute(:hospital_id, nil)
     assert_not @user.valid?
   end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
+  end
 end
