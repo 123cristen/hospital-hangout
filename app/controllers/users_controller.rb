@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       message = pluralize(@user.errors.count, "error")
-      flash[:danger] = "This form contains #{message}"
+      flash.now[:danger] = "This form contains #{message}"
       render 'new'
     end
   end
