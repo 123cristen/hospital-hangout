@@ -89,8 +89,10 @@ class FormBuilder < ActionView::Helpers::FormBuilder
 	end
 
 	def errors_for_field(attribute, options={})
-		return "" if object.errors[attribute].empty?
-		content_tag(:small, object.errors[attribute].to_sentence.downcase.capitalize, class: ERROR_CLASS)
-		# object refers to the object passed into the form
+		if !object.nil? 
+			return "" if object.errors[attribute].empty?
+			content_tag(:small, object.errors[attribute].to_sentence.downcase.capitalize, class: ERROR_CLASS)
+			# object refers to the object passed into the form
+		end
 	end
 end
