@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionView::Helpers::TextHelper
   
   def show
   	@user = User.find(params[:id])
@@ -11,9 +12,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to Hospital Hangout!"
       redirect_to @user
     else
+      message = pluralize(@user.errors.count, "error")
+      flash[:danger] = "This form contains #{message}"
       render 'new'
     end
   end

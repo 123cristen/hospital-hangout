@@ -28,6 +28,15 @@ $background: #4B77BE; /*#22A7F0;*/
 	&:hover { background-color: $hover-color; }
 }
 
+@mixin alert($color, $background_color) {
+	display: block;
+	padding: 15px;
+	text-align: center;
+	border: 1px solid $color;
+	color: $color;
+	background-color: $background_color;
+}
+
 @mixin input-button($background-color, $text-color, 
 										$border-color, $hover-color) {
 	text-align: center;
@@ -196,6 +205,38 @@ footer {
 	}
 }
 
+
+/*****************************************
+ALERTS, ERRORS AND DEBUG
+*****************************************/
+
+input.error {
+		background-color: red;
+}
+
+small.error {
+	color: red;
+}
+
+.alert-success {
+	@include alert(#407A52, #ACE1AF);
+}
+
+.alert-danger {
+	@include alert(#9D2933, #E68364)
+}
+
+/*.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}*/
+
+
 /*****************************************
 MEDIA QUERIES
 *****************************************/
@@ -224,13 +265,6 @@ MEDIA QUERIES
 		border: none;
 	}
 
-	.form {
-		.cell {
-/*			text-align: left;
-			width: initial;*/
-		}
-	}
-
 	#logo {
 		text-align: left;
 		font-size: 4em;
@@ -239,6 +273,11 @@ MEDIA QUERIES
 	div.content {
 		border-radius: 10px;
 		margin-top: 20px;
+	}
+
+	.alert {
+		margin: 10px 0 0 0;
+		border-radius: 5px;
 	}
 }
 
@@ -258,6 +297,10 @@ MEDIA QUERIES
 			text-align: left;
 		}
 	}
+
+	.alert {
+		text-align: left;
+	}
 }
 
 @media only screen and (min-width: 1068px) {
@@ -265,27 +308,5 @@ MEDIA QUERIES
 		font-size: 1em;
 	}
 }
-
-/*****************************************
-ERRORS AND DEBUG
-*****************************************/
-
-input.error {
-		background-color: red;
-}
-
-small.error {
-	color: red;
-}
-
-/*.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}*/
 
 

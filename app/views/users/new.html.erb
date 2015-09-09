@@ -3,18 +3,17 @@
 	<h2>Sign Up</h2>
   <div class="form">
     <%= form_for(@user, builder: FormBuilder) do |f| %>
-    	<%= render 'shared/error_messages' %>
-      	<%= f.text_field :name %>
+    	<%= f.text_field :name %>
 
-    		<%= f.email_field :email %>
+  		<%= f.email_field :email %>
 
-    		<%= f.text_field :hospital_id %>
+  		<%= f.text_field :hospital_id %>
 
-    		<%= f.password_field :password %>
+  		<%= f.password_field :password %>
 
-    		<%= f.password_field :password_confirmation, label: "confirm password" %>
+  		<%= f.password_field :password_confirmation, label: "confirm password" %>
 
-    		<%= f.submit "Create my account" %>
+  		<%= f.submit "Create my account" %>
     <% end %>
   </div>
 </div>
