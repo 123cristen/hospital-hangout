@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
 
+  get 'hospital_sessions/new'
+
   get 'sessions/new'
 
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'help' => 'static_pages#help'
-  get 'hospitals' => 'static_pages#hospitals'
+  get 'hospitals_info' => 'static_pages#hospitals'
   get 'signup' => 'users#new'
   get 'hospital_signup' => 'hospitals#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get    'hospital_login'   => 'hospital_sessions#new'
+  post   'hospital_login'   => 'hospital_sessions#create'
+  delete 'hospital_logout'  => 'hospital_sessions#destroy'
   resources :users
+  resources :hospitals
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

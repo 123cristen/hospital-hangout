@@ -1,0 +1,7 @@
+<li class="<%= 'active' if current_page?(about_path) %> nav-item">
+  <%= link_to "About",   about_path %></li>
+<li class="<%= 'active' if current_page?(hospitals_path) %> nav-item">
+  <%= link_to "Hospitals",   hospitals_info_path %></li>
+<li class="nav-item float-right"><%= link_to "Log in", login_path %></li>
+<% layout = "#{controller.controller_name}/#{controller.action_name}" %>
+<li class="<%= 'active' if layout == "users/new" || layout == "users/create"  %> nav-item float-right"><%= link_to "Sign up", signup_path %></li>

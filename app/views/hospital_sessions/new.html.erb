@@ -1,0 +1,16 @@
+<% provide(:title, "Hospital Log In") %>
+<div class="content">
+	<h2>Hospital Log In</h2>
+  <div class="form">
+    <%= form_for(:session, url: hospital_login_path, builder: FormBuilder) do |f| %>
+
+      <%= f.text_field :hospital_id, label: "Hospital Name" %>
+
+      <%= f.password_field :password %>
+
+      <%= f.submit "Log in", class: "button submit" %>
+    <% end %>
+
+    <small>New hospital? <%= link_to "Register now!", hospitals_info_path %></small>
+  </div>
+</div>

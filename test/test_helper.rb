@@ -16,9 +16,14 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
+  # Returns true if a test hospital is logged in.
+  def is_h_logged_in?
+    !session[:hospital_id].nil?
+  end
+
   # Logs in a test user.
   def log_in_as(user, options = {})
-    password    = options[:password]    || 'password'
+    password    = options[:password]    || 'Password1'
     remember_me = options[:remember_me] || '1'
     if integration_test?
       post login_path, session: { email:       user.email,

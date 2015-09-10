@@ -1,2 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+example:
+  name: Example Children's Hospital,
+  email: hospital@example.com,
+  password_digest: <%= Hospital.digest('Password1') %>
+  address_line_1: 5 Main Street,
+  city: Los Angeles,
+  state: CA,
+  zip: 90024

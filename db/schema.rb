@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909164257) do
+ActiveRecord::Schema.define(version: 20150910111513) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150909164257) do
     t.string   "zip"
   end
 
-  add_index "hospitals", ["email"], name: "index_hospitals_on_email", unique: true
+  add_index "hospitals", ["name"], name: "index_hospitals_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
