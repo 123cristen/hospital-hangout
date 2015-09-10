@@ -8,6 +8,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 			post users_path, user: { name: "",
 															email: "user@invalid",
 															hospital: nil,
+                                                            code: nil,
 															password: "foo",
 															password_confirmation: "bar" }
 		end
@@ -22,6 +23,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post_via_redirect users_path, user: { name:  "Example User",
                                             email: "user2@example.com",
                                             hospital_id: 1,
+                                            code: "234234234234",
                                             password:              "Password1",
                                             password_confirmation: "Password1" }
     end

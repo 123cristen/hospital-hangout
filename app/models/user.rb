@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
+  attr_accessor :code_token
   belongs_to :hospital
 
 	before_save { email.downcase! }
@@ -14,6 +15,8 @@ class User < ActiveRecord::Base
 	VALID_PASSWORD_REGEX = /(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*/
   validate :password_complexity
   validates :password_confirmation, presence: true
+  validates :code_token, presence: true
+  validate :authenticated_code
 
   def password_complexity
     if password.nil? || !password.match(VALID_PASSWORD_REGEX)
@@ -49,4 +52,21 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def authenticated_code
+    if code_token.nil? || hospital_id.nil?
+      errors.add :code_token, "must have a valid access code"
+      return false
+    end
+
+    Code.find_by_sql("SELECT * FROM codes WHERE hospital_id = id").each do |code|
+      if code.authenticated?(code_token)
+        return true
+      end
+    end
+
+    errors.add :code_token, "must have a valid access code"
+    return false
+  end
+
 end

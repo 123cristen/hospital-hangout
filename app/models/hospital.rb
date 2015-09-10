@@ -1,6 +1,7 @@
 class Hospital < ActiveRecord::Base
 	has_many :users
-
+	has_many :codes
+	after_save :create_codes
 	before_save { email.downcase! }
 	validates :name, presence: true, length: { maximum: 100 }
 	validates :address_line_1, presence: true, length: { maximum: 100 }
@@ -15,6 +16,13 @@ class Hospital < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 6 }
 	VALID_PASSWORD_REGEX = /(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*/
   validate :password_complexity
+
+  def create_codes
+  	50.times do 
+  		code = Code.create(hospital: self)
+  		code.new_digest
+  	end
+  end
 
   def password_complexity
     if !password.match(VALID_PASSWORD_REGEX)

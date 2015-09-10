@@ -23,7 +23,7 @@ class HospitalsLoginTest < ActionDispatch::IntegrationTest
 		follow_redirect!
 		assert_template 'hospitals/show'
 		assert_select "a[href=?]", login_path, count: 0
-		assert_select "a[href=?]", logout_path
+		assert_select "a[href=?]", hospital_logout_path
 		assert_select "a[href=?]", hospital_path(@hospital)
 		delete hospital_logout_path
 		assert_not is_h_logged_in?
