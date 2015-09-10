@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
       return false
     end
 
-    Code.find_by_sql("SELECT * FROM codes WHERE hospital_id = id").each do |code|
+    Code.find_by_sql("SELECT * FROM codes WHERE hospital_id = #{self.hospital_id}").each do |code|
       if code.authenticated?(code_token)
         return true
       end

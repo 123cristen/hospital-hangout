@@ -4,7 +4,10 @@ class UserTest < ActiveSupport::TestCase
   
   def setup
     @user = User.new(name: "Example User", email: "user23@example.com",
-    								password: "Foobar1", password_confirmation: "Foobar1", hospital_id: 1)
+    								password: "Foobar1", password_confirmation: "Foobar1", 
+                    hospital_id: 1, code_token: "234234234")
+    @hospital = Hospital.new(id: 1, name: "Example hospital")
+    @code = Code.new(code_digest: Code.digest("234234234"), hospital_id: 1)
   end
 
   test "should be valid" do
@@ -100,5 +103,15 @@ class UserTest < ActiveSupport::TestCase
 
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?('')
+  end
+
+  test "code token should not be empty" do
+    @user.update_attribute(:code_token, nil)
+    assert_not @user.valid?
+  end
+
+  test "code token should be a valid code" do
+    @user.update_attribute(:code_token, "this is not valid")
+    assert_not @user.valid?
   end
 end
