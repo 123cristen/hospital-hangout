@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get    'hospital_login'   => 'hospital_sessions#new'
   post   'hospital_login'   => 'hospital_sessions#create'
   delete 'hospital_logout'  => 'hospital_sessions#destroy'
+  
+  get 'hospital_codes/:id', to: 'hospitals#codes', as: 'hospital_codes'
+
   resources :users
   resources :hospitals
 

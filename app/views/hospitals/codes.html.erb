@@ -1,0 +1,8 @@
+<% provide(:title, "Access Codes") %>
+<div class="content">
+	<% Code.find_by_sql("SELECT * FROM codes WHERE hospital_id = #{@hospital.id}").each do |code| %>
+	<div class="row">
+		<p><%= code.code_digest %></p>
+	</div>
+	<% end %>
+</div>
